@@ -21,7 +21,7 @@
                     <xs:element name="State" type="xs:string"/>
                     <xs:element name="Zip" type="xs:string"/>
                   </xs:sequence>
-                  <!-- Optional attribute spelled as NearstAirport to match the assignment's figure -->
+                  <!-- tried matching the spelling to what they gave us-->
                   <xs:attribute name="NearstAirport" type="xs:string" use="optional"/>
                 </xs:complexType>
               </xs:element>
