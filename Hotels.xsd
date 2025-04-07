@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema">
+
   <!-- Root element -->
   <xs:element name="Hotels">
     <xs:complexType>
@@ -7,9 +8,9 @@
         <xs:element name="Hotel" maxOccurs="unbounded">
           <xs:complexType>
             <xs:sequence>
-              <!-- Name should appear exactly once -->
+              <!-- Exactly one Name -->
               <xs:element name="Name" type="xs:string"/>
-              <!-- Phone can appear multiple times -->
+              <!-- Multiple Phone elements allowed -->
               <xs:element name="Phone" type="xs:string" maxOccurs="unbounded"/>
               <xs:element name="Address">
                 <xs:complexType>
@@ -20,8 +21,8 @@
                     <xs:element name="State" type="xs:string"/>
                     <xs:element name="Zip" type="xs:string"/>
                   </xs:sequence>
-                  <!-- Optional attribute for Address -->
-                  <xs:attribute name="NearestAirport" type="xs:string" use="optional"/>
+                  <!-- Optional attribute spelled as NearstAirport to match the assignment's figure -->
+                  <xs:attribute name="NearstAirport" type="xs:string" use="optional"/>
                 </xs:complexType>
               </xs:element>
             </xs:sequence>
@@ -32,4 +33,5 @@
       </xs:sequence>
     </xs:complexType>
   </xs:element>
+
 </xs:schema>

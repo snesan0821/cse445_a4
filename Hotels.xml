@@ -4,7 +4,8 @@
     <Name>Westin</Name>
     <Phone>480-968-8885</Phone>
     <Phone>800-937-8461</Phone>
-    <Address NearestAirport="Sky Harbor">
+    <!-- Notice the spelling: NearstAirport & Sky Habor -->
+    <Address NearstAirport="Sky Habor">
       <Number>11</Number>
       <Street>E 7th St</Street>
       <City>Tempe</City>
@@ -12,6 +13,7 @@
       <Zip>85281</Zip>
     </Address>
   </Hotel>
+
   <Hotel Rating="3.8">
     <Name>Marriott</Name>
     <Phone>555-123-4567</Phone>
@@ -23,11 +25,12 @@
       <Zip>85004</Zip>
     </Address>
   </Hotel>
+
   <Hotel Rating="4.5">
     <Name>Hilton</Name>
     <Phone>602-555-0101</Phone>
     <Phone>602-555-0102</Phone>
-    <Address NearestAirport="Phoenix Sky Harbor">
+    <Address NearstAirport="Sky Habor">
       <Number>202</Number>
       <Street>Central Ave</Street>
       <City>Phoenix</City>
@@ -35,6 +38,7 @@
       <Zip>85001</Zip>
     </Address>
   </Hotel>
+
   <Hotel Rating="4.0">
     <Name>Hyatt</Name>
     <Phone>480-555-0123</Phone>
@@ -46,10 +50,11 @@
       <Zip>85254</Zip>
     </Address>
   </Hotel>
+
   <Hotel Rating="3.9">
     <Name>Sheraton</Name>
     <Phone>602-555-0199</Phone>
-    <Address NearestAirport="Sky Harbor">
+    <Address NearstAirport="Sky Habor">
       <Number>404</Number>
       <Street>Valley Rd</Street>
       <City>Phoenix</City>
@@ -57,6 +62,7 @@
       <Zip>85016</Zip>
     </Address>
   </Hotel>
+
   <Hotel Rating="4.7">
     <Name>Four Seasons</Name>
     <Phone>480-555-0177</Phone>
@@ -68,10 +74,11 @@
       <Zip>85260</Zip>
     </Address>
   </Hotel>
+
   <Hotel Rating="4.3">
     <Name>Ritz Carlton</Name>
     <Phone>602-555-0333</Phone>
-    <Address NearestAirport="Phoenix Sky Harbor">
+    <Address NearstAirport="Sky Habor">
       <Number>606</Number>
       <Street>Ritz Way</Street>
       <City>Phoenix</City>
@@ -79,6 +86,7 @@
       <Zip>85020</Zip>
     </Address>
   </Hotel>
+
   <Hotel Rating="3.7">
     <Name>InterContinental</Name>
     <Phone>480-555-0456</Phone>
@@ -90,6 +98,7 @@
       <Zip>85281</Zip>
     </Address>
   </Hotel>
+
   <Hotel Rating="4.1">
     <Name>Wyndham</Name>
     <Phone>602-555-0555</Phone>
@@ -101,10 +110,11 @@
       <Zip>85022</Zip>
     </Address>
   </Hotel>
+
   <Hotel Rating="3.5">
     <Name>Holiday Inn</Name>
     <Phone>480-555-0666</Phone>
-    <Address NearestAirport="Sky Harbor">
+    <Address NearstAirport="Sky Habor">
       <Number>909</Number>
       <Street>Holiday Rd</Street>
       <City>Tempe</City>

@@ -1,18 +1,19 @@
 using System;
-using System.IO;
+using System.Text;
 using System.Xml;
 using System.Xml.Schema;
 using Newtonsoft.Json;
-using System.Text;
 
 namespace ConsoleApp1
 {
     public class Program
     {
         // Update these URLs after you deploy your XML/XSD files via GitHub Pages.
-        public static string xmlURL = "https://snesan0821.github.io/cse445_a4/Hotels.xml";      // Q1.2
+        // IMPORTANT: Make sure these point to the *raw* GitHub URLs or
+        // your GitHub Pages URLs where the files are publicly accessible.
+        public static string xmlURL = "https://snesan0821.github.io/cse445_a4/Hotels.xml";        // Q1.2
         public static string xmlErrorURL = "https://snesan0821.github.io/cse445_a4/HotelsErrors.xml"; // Q1.3
-        public static string xsdURL = "https://snesan0821.github.io/cse445_a4/Hotels.xsd";      // Q1.1
+        public static string xsdURL = "https://snesan0821.github.io/cse445_a4/Hotels.xsd";        // Q1.1
 
         public static void Main(string[] args)
         {
@@ -86,11 +87,11 @@ namespace ConsoleApp1
                 }
 
                 // Convert XML to JSON using Newtonsoft.Json.
-                string jsonText = JsonConvert.SerializeXmlNode(doc, Newtonsoft.Json.Formatting.Indented);
-                
+                string jsonText = JsonConvert.SerializeXmlNode(doc, Formatting.Indented);
+
                 // Replace attribute prefix "@" with "_" to match the required JSON structure.
                 jsonText = jsonText.Replace("\"@", "\"_");
-                
+
                 return jsonText;
             }
             catch (Exception ex)
