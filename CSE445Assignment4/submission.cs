@@ -1,17 +1,18 @@
 using System;
-using System.Xml.Schema;
-using System.Xml;
-using Newtonsoft.Json;
 using System.IO;
+using System.Xml;
+using System.Xml.Schema;
+using Newtonsoft.Json;
+using System.Text;
 
 namespace ConsoleApp1
 {
     public class Program
     {
         // Update these URLs after you deploy your XML/XSD files via GitHub Pages.
-        public static string xmlURL = "https://snesan0821.github.io/cse445_a4/Hotels.xml"; // Q1.2
+        public static string xmlURL = "https://snesan0821.github.io/cse445_a4/Hotels.xml";      // Q1.2
         public static string xmlErrorURL = "https://snesan0821.github.io/cse445_a4/HotelsErrors.xml"; // Q1.3
-        public static string xsdURL = "https://snesan0821.github.io/cse445_a4/Hotels.xsd"; // Q1.1
+        public static string xsdURL = "https://snesan0821.github.io/cse445_a4/Hotels.xsd";      // Q1.1
 
         public static void Main(string[] args)
         {
@@ -36,6 +37,7 @@ namespace ConsoleApp1
         // Q2.1: Validate XML against XSD.
         public static string Verification(string xmlUrl, string xsdUrl)
         {
+            StringBuilder errorMsg = new StringBuilder();
             try
             {
                 // Load the XSD schema.
@@ -49,10 +51,9 @@ namespace ConsoleApp1
                 XmlReaderSettings settings = new XmlReaderSettings();
                 settings.Schemas = schemas;
                 settings.ValidationType = ValidationType.Schema;
-                string errorMsg = "";
                 settings.ValidationEventHandler += (sender, e) =>
                 {
-                    errorMsg += $"Line {e.Exception.LineNumber}, Position {e.Exception.LinePosition}: {e.Message}\n";
+                    errorMsg.AppendLine($"Line {e.Exception.LineNumber}, Position {e.Exception.LinePosition}: {e.Message}");
                 };
 
                 // Read the XML document to trigger validation.
@@ -61,7 +62,7 @@ namespace ConsoleApp1
                     while (reader.Read()) { }
                 }
 
-                return string.IsNullOrEmpty(errorMsg) ? "No Error" : errorMsg;
+                return errorMsg.Length == 0 ? "No Error" : errorMsg.ToString();
             }
             catch (Exception ex)
             {
@@ -78,10 +79,18 @@ namespace ConsoleApp1
                 XmlDocument doc = new XmlDocument();
                 doc.Load(xmlUrl);
 
+                // Remove the XML declaration node if present.
+                if (doc.FirstChild != null && doc.FirstChild.NodeType == XmlNodeType.XmlDeclaration)
+                {
+                    doc.RemoveChild(doc.FirstChild);
+                }
+
                 // Convert XML to JSON using Newtonsoft.Json.
                 string jsonText = JsonConvert.SerializeXmlNode(doc, Newtonsoft.Json.Formatting.Indented);
+                
                 // Replace attribute prefix "@" with "_" to match the required JSON structure.
                 jsonText = jsonText.Replace("\"@", "\"_");
+                
                 return jsonText;
             }
             catch (Exception ex)
